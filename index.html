@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Rockets project</title>
+</head>
+<body>
+    <div class="container">
+        <div class="rocket" id="32WESSDS">
+            <img src="img/rocket1.svg" alt="rocket 1" class="rocketImg vibrate-2">
+            <a id="btnRocket1_speedUp" class="btn">Acelerar</a>
+            <a id="btnRocket1_brake" class="btn">Frenar</a>
+        </div>
+        <div class="rocket" id="LDSFJA32">
+            <img src="img/rocket2.svg" alt="rocket 2" class="rocketImg vibrate-2">
+            <a id="btnRocket2_speedUp" class="btn">Acelerar</a>
+            <a id="btnRocket2_brake" class="btn">Frenar</a>
+        </div>
+    </div>
+    <div id="particles-js"></div>
+    <script src="js/assets/particles.js"></script>
+    <script src="js/assets/app-particles.js"></script>
+    <script src="https://unpkg.com/systemjs@0.19.29/dist/system.src.js"></script>
+    <script>
+        System.config({
+            defaultJSExtensions: true
+        });
+        System.import('js/controller/controller');
+    </script>
+</body>
+</html>
