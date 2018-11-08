@@ -35,12 +35,18 @@ function handleRockets() {
     var rocketOneBrakeCtrl = document.querySelector('#btnRocket1_brake');
     var rocketTwoSpeedUpCtrl = document.querySelector('#btnRocket2_speedUp');
     var rocketTwoBrakeCtrl = document.querySelector('#btnRocket2_brake');
+    var rocketImgOne = document.querySelector('#rocketImgOne');
+    var rocketImgTwo = document.querySelector('#rocketImgTwo');
+    var speedCounter = 0;
     rocketOneSpeedUpCtrl.addEventListener('click', function () {
         rocketOne.speedUp();
+        speedCounter++;
+        animateRocket(rocketImgOne, speedCounter);
         checkEnginesInfoExistence(rocketOne, rocket1Container);
     });
     rocketTwoSpeedUpCtrl.addEventListener('click', function () {
         rocketTwo.speedUp();
+        animateRocket(rocketImgTwo, speedCounter);
         checkEnginesInfoExistence(rocketTwo, rocket2Container);
     });
     rocketOneBrakeCtrl.addEventListener('click', function () {
@@ -61,6 +67,20 @@ function createInfo(rocketNumber, rocketContainer) {
     rocketContainer.appendChild(rocketNumProppellers);
     createEnginesInfo(rocketNumber, rocketContainer);
 }
+function animateRocket(rocketImgNumber, speedCounter) {
+    switch (speedCounter) {
+        case 1:
+            rocketImgNumber.style.animation = "vibrate-1 1s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-1 1s ease-in-out infinite both";
+        case 2:
+            rocketImgNumber.style.animation = "vibrate-2 0.8s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-2 0.4s ease-in-out infinite both";
+        case 3:
+            rocketImgNumber.style.animation = "vibrate-3 0.6s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-3 0.6s ease-in-out infinite both";
+    }
+    console.log(speedCounter);
+}
 function checkEnginesInfoExistence(rocketNumber, rocketContainer) {
     var rocketCode = rocketNumber.codename;
     var elem = document.querySelector('.enginesInfo' + rocketCode);
@@ -71,6 +91,7 @@ function checkEnginesInfoExistence(rocketNumber, rocketContainer) {
 }
 function createEnginesInfo(rocketNumber, rocketContainer) {
     var rocketPowerContainer = document.createElement('div');
+    rocketPowerContainer.classList.add('enginesInfoContainer');
     var rocketCode = rocketNumber.codename;
     rocketPowerContainer.classList.add('enginesInfo' + rocketCode);
     var rocketPropps = rocketNumber.propellers;
