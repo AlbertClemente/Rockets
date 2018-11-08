@@ -37,16 +37,18 @@ function handleRockets() {
     var rocketTwoBrakeCtrl = document.querySelector('#btnRocket2_brake');
     var rocketImgOne = document.querySelector('#rocketImgOne');
     var rocketImgTwo = document.querySelector('#rocketImgTwo');
-    var speedCounter = 0;
+    var speedCounterRocketOne = 0;
+    var speedCounterRocketTwo = 0;
     rocketOneSpeedUpCtrl.addEventListener('click', function () {
         rocketOne.speedUp();
-        speedCounter++;
-        animateRocket(rocketImgOne, speedCounter);
+        speedCounterRocketOne++;
+        animateRocket(rocketImgOne, speedCounterRocketOne);
         checkEnginesInfoExistence(rocketOne, rocket1Container);
     });
     rocketTwoSpeedUpCtrl.addEventListener('click', function () {
         rocketTwo.speedUp();
-        animateRocket(rocketImgTwo, speedCounter);
+        speedCounterRocketTwo++;
+        animateRocket(rocketImgTwo, speedCounterRocketTwo);
         checkEnginesInfoExistence(rocketTwo, rocket2Container);
     });
     rocketOneBrakeCtrl.addEventListener('click', function () {
@@ -70,14 +72,45 @@ function createInfo(rocketNumber, rocketContainer) {
 function animateRocket(rocketImgNumber, speedCounter) {
     switch (speedCounter) {
         case 1:
-            rocketImgNumber.style.animation = "vibrate-1 1s ease-in-out infinite both";
-            rocketImgNumber.style["webkit" + "animation"] = "vibrate-1 1s ease-in-out infinite both";
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter + "s ease-in-out infinite both";
+            break;
         case 2:
-            rocketImgNumber.style.animation = "vibrate-2 0.8s ease-in-out infinite both";
-            rocketImgNumber.style["webkit" + "animation"] = "vibrate-2 0.4s ease-in-out infinite both";
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.45 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.45 + "s ease-in-out infinite both";
+            break;
         case 3:
-            rocketImgNumber.style.animation = "vibrate-3 0.6s ease-in-out infinite both";
-            rocketImgNumber.style["webkit" + "animation"] = "vibrate-3 0.6s ease-in-out infinite both";
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.2667 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.2667 + "s ease-in-out infinite both";
+            break;
+        case 4:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.175 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.175 + "s ease-in-out infinite both";
+            break;
+        case 5:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.12 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.12 + "s ease-in-out infinite both";
+            break;
+        case 6:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.0833 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.0833 + "s ease-in-out infinite both";
+            break;
+        case 7:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.0571 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.0571 + "s ease-in-out infinite both";
+            break;
+        case 8:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.0375 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.0375 + "s ease-in-out infinite both";
+            break;
+        case 9:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.0222 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.0222 + "s ease-in-out infinite both";
+            break;
+        case 10:
+            rocketImgNumber.style.animation = "vibrate-" + speedCounter + " " + speedCounter * 0.01 + "s ease-in-out infinite both";
+            rocketImgNumber.style["webkit" + "animation"] = "vibrate-" + speedCounter + " " + speedCounter * 0.01 + "s ease-in-out infinite both";
+            break;
     }
     console.log(speedCounter);
 }
